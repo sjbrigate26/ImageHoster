@@ -11,6 +11,14 @@ import java.util.List;
 
 @Controller
 public class HomeController{
-
+   @Autowired
+    private ImageService imageService;
+    @RequestMapping("/")
+    public String Home(Model model)
+    {
+        List<Image> images = imageService.getAllImages();
+        model.addAttribute("images1", images);
+        return "index";
+    }
  
 }
